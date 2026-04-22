@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador ATM 24 Horas</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <div id="atmStage" class="atm-stage">
+      <section id="atmMachine" class="atm-machine" aria-label="Simulador de caixa eletrônico Banco24Horas">
+        <button
+          id="reloadPageHotspot"
+          class="reload-page-hotspot"
+          type="button"
+          aria-label="Recarregar página"
+        ></button>
+        <div class="machine-display">
+        <aside class="side-buttons left-buttons" aria-label="Botões do lado esquerdo">
+          <button class="side-btn" data-index="0" aria-label="Selecionar opção 1"></button>
+          <button class="side-btn" data-index="1" aria-label="Selecionar opção 2"></button>
+          <button class="side-btn" data-index="2" aria-label="Selecionar opção 3"></button>
+          <button class="side-btn" data-index="3" aria-label="Selecionar opção 4"></button>
+        </aside>
+
+        <section class="center-column">
+          <div class="screen-bezel">
+            <div class="screen" id="screenRoot" aria-live="polite"></div>
+          </div>
+
+          <div class="hardware-row">
+            <button id="receiptSlot" class="receipt-slot" type="button" aria-label="Retirar impresso">
+              <span class="slot-label">Retire seu impresso</span>
+              <div class="slot-mouth"></div>
+              <span class="receipt-slip" aria-hidden="true"></span>
+            </button>
+
+            <button id="cardToggle" class="card-reader" type="button" aria-label="Inserir ou remover cartão">
+              <span class="card-reader-demo" aria-hidden="true">
+                <span class="demo-card-hand">
+                  <span class="demo-card-shape"></span>
+                  <span class="demo-palm"></span>
+                  <span class="demo-fingers"></span>
+                </span>
+              </span>
+              <span class="reader-light"></span>
+              <span class="reader-text" id="cardStatus">Inserir cartão</span>
+            </button>
+
+            <div id="fingerprintReader" class="fingerprint-reader" aria-label="Leitor biométrico">
+              <div class="fingerprint-device" aria-hidden="true">
+                <div class="fingerprint-head">
+                  <div class="fingerprint-sensor-ring"></div>
+                </div>
+                <div class="fingerprint-red-visor"></div>
+                <div class="fingerprint-arm">
+                  <div class="fingerprint-pad"></div>
+                </div>
+                <div class="fingerprint-pulse-base">PULSO</div>
+                <span class="fingerprint-demo fingerprint-demo-pulse">
+                  <span class="pulse-hand"></span>
+                </span>
+                <span class="fingerprint-demo fingerprint-demo-finger">
+                  <span class="scan-finger"></span>
+                </span>
+              </div>
+              <span class="fingerprint-label">Leitor biométrico</span>
+            </div>
+
+            <button id="cashSlot" class="cash-slot" type="button" aria-label="Retirar dinheiro">
+              <span class="slot-label">Retire seu dinheiro</span>
+              <div class="cash-slot-mouth"></div>
+              <span class="cash-bundle" aria-hidden="true">
+                <span class="cash-note"></span>
+                <span class="cash-note"></span>
+                <span class="cash-note"></span>
+              </span>
+            </button>
+          </div>
+
+          <div class="atm-utility-buttons" hidden>
+            <button id="cancelButton" type="button">ANULA</button>
+            <button id="backButton" type="button">CORRIGE</button>
+          </div>
+        </section>
+
+        <aside class="side-buttons right-buttons" aria-label="Botões do lado direito">
+          <button class="side-btn" data-index="4" aria-label="Selecionar opção 5"></button>
+          <button class="side-btn" data-index="5" aria-label="Selecionar opção 6"></button>
+          <button class="side-btn" data-index="6" aria-label="Selecionar opção 7"></button>
+          <button class="side-btn" data-index="7" aria-label="Selecionar opção 8"></button>
+        </aside>
+        </div>
+      </section>
+    </div>
+    <button id="helpSidebarButton" class="help-sidebar-button" type="button" hidden>
+      <span class="help-sidebar-tag">Tutorial</span>
+      <strong>Precisa de uma ajuda?</strong>
+      <span>Iniciar explicação guiada</span>
+    </button>
+  </main>
+
+  <div id="modalRoot"></div>
+  <div id="onboardingRoot"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
